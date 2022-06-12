@@ -11,18 +11,19 @@ repositories {
 
 def junitVersion = '5.8.2',
     selenideVersion = '6.6.2',
-    ownerVersion = '1.0.12'
+    ownerVersion = '1.0.12',
+    assertjVersion = '3.23.1'
 
 dependencies {
     testImplementation(
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "com.codeborne:selenide:$selenideVersion",
-            "org.aeonbits.owner:owner:$ownerVersion"
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "org.assertj:assertj-core:$assertjVersion"
     )
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 test {
-    useJUnitPlatform()
     systemProperties(System.getProperties())
 }
