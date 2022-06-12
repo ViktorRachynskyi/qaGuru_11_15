@@ -9,15 +9,20 @@ repositories {
     mavenCentral()
 }
 
+def junitVersion = "5.8.2",
+    selenideVersion = '6.6.2',
+    ownerVersion = '1.0.12'
+
 dependencies {
     testImplementation(
-            'org.junit.jupiter:junit-jupiter-api:5.8.2',
-            'com.codeborne:selenide:6.6.2',
-            'org.aeonbits.owner:owner:1.0.12'
+            'org.junit.jupiter:junit-jupiter-api:$junitVersion',
+            'com.codeborne:selenide:$selenideVersion',
+            'org.aeonbits.owner:owner:$ownerVersion'
     )
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:$junitVersion'
 }
 
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }
